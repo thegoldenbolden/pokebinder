@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Bitter&display=swap');
+
+* {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+}
+
+body,
+html {
+ font-family: Roboto, sans-serif;
+ scroll-behavior: smooth;
+}
+
+a,
+button {
+ background: inherit;
+ text-decoration: none;
+ border: none;
+ color: currentColor;
+}
+
+ul {
+ list-style-type: none;
+}
+
+a {
+
+ &:hover,
+ &:focus {
+  color: $accent;
+ }
+}
+
+svg {
+ height: 1em;
+ width: 1em;
+}
+
+header {
+ display: flex;
+ box-shadow: 1px 1px 6px rgba(0, 0, 0, .3);
+ padding: .75em;
+ position: relative;
+ align-items: center;
+ justify-content: space-between;
+ width: 100%;
+
+ .logo {
+  font-size: 1.8rem;
+  color: currentColor;
+
+  &:hover {
+   color: currentColor;
+  }
+ }
+
+ svg {
+  font-size: 1.4em;
+ }
+
+ @include laptop-and-up {
+  @include padding;
+ }
+}
+
+footer {
+ font-size: .7em;
+ text-align: center;
+ @include padding;
+ box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+ margin-top: 1rem;
+}
+
+#binder {
+ color: $accent;
+}
+
+.mobile {
+ display: none;
+
+ @include mobile {
+  display: initial;
+ }
+}
+
+.tablet {
+ display: none;
+
+ @include tablet-and-up {
+  display: initial;
+ }
+}
+
+.sr-only {
+ position: fixed;
+ left: -1000000px;
+}
+
+.no-scroll {
+ overflow: hidden;
+ display: block;
+}
+
+.image {
+ height: 225px;
+ width: 150px;
+
+ @include tablet-and-up {
+  height: 300px;
+  width: 225px;
+ }
+
+ @include laptop-and-up {
+  height: 275px;
+  width: 200px;
+ }
+
+ @include desktop-and-up {
+  height: 300px;
+  width: 225px;
+ }
+
+ @include large-screen {
+  height: 350px;
+  width: 250px;
+ }
+}
+
+body {
+ &::-webkit-scrollbar {
+  width: 8px;
+ }
+
+ &::-webkit-scrollbar-thumb {
+  background: currentColor;
+  border-radius: 2px;
+ }
+}

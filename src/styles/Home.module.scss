@@ -1,0 +1,155 @@
+.landing {
+ height: 70vh;
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
+ position: relative;
+
+ &::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .1;
+  position: absolute;
+  background-image: url("/collection.jpg");
+  background-repeat: no-repeat;
+  background-position: 0;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, .2);
+ }
+
+ div {
+  z-index: 100;
+
+  h1 {
+   font-size: 1.8rem;
+  }
+
+  p {
+   font-size: 1.2rem;
+  }
+
+  @include laptop-and-up {
+   h1 {
+    font-size: 3rem;
+   }
+
+   p {
+    font-size: 1.6rem;
+   }
+  }
+
+  form {
+   width: 100%;
+   margin-top: 12px;
+
+   p {
+    display: flex;
+    font-size: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: rem(8) auto;
+    margin-top: rem(8);
+    text-align: center;
+    width: 60%;
+
+    strong {
+     color: $accent;
+     font-weight: bold;
+    }
+   }
+
+   input {
+    padding: .5rem;
+    border-radius: rem(2);
+    background: $accent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    border: none;
+    width: 90%;
+    outline: none;
+
+
+    @include tablet-and-up {
+     width: 100%;
+    }
+
+    &:focus {
+     outline: none;
+    }
+   }
+  }
+ }
+}
+
+.recent {
+ background: linear-gradient(to bottom, currentColor 50%, transparent 50%);
+ align-items: center;
+
+ .recent-h {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  @include padding;
+  background: transparent;
+
+  align-items: center;
+
+  div {
+   display: flex;
+   align-items: center;
+   font-size: 1.4rem;
+  }
+ }
+
+ .container {
+  @include padding;
+  display: flex;
+  gap: 1rem;
+  height: max-content;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+   height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+   background: currentColor;
+   border-radius: 2px;
+  }
+
+  .set {
+   padding: .5em;
+   border-radius: rem(2);
+   box-shadow: 0 0 3px rgba(0, 0, 0, .6);
+
+   .name {
+    margin-top: .5em;
+
+    div {
+     display: flex;
+     align-items: center;
+     gap: rem(8);
+     margin: .5em 0;
+    }
+
+    svg,
+    .symbol {
+     height: rem(24);
+     width: rem(24);
+    }
+   }
+
+   .logo {
+    object-fit: contain;
+    height: rem(150);
+    width: rem(300);
+   }
+  }
+ }
+}

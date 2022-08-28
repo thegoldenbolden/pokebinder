@@ -1,0 +1,391 @@
+.card {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: 100%;
+
+ @include laptop-and-up {
+  @include padding;
+ }
+
+ .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  gap: 1rem;
+  width: 100%;
+
+  @include laptop-and-up {
+   flex-direction: row;
+  }
+
+  img {
+   max-height: 375px;
+   max-width: 250px;
+   height: 60%;
+   width: 90%;
+
+   @include tablet-and-up {
+    height: 375px;
+    width: 250px;
+    max-height: max-content;
+    max-width: max-content;
+   }
+
+   @include laptop-and-up {
+    height: 450px;
+    align-self: flex-start;
+    width: 325px;
+   }
+  }
+
+  // Card information excluding card image.
+  .container {
+   display: flex;
+   width: 100%;
+   border-radius: 10px;
+   flex-direction: column;
+
+   h1 {
+    text-align: center;
+    align-self: center;
+
+    span {
+     font-size: .8em;
+    }
+   }
+
+   @include tablet-and-up {
+    height: 450px;
+    flex-grow: 1;
+    padding: 0 1em;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+     width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+     background: $accent;
+     border-radius: 3px;
+    }
+   }
+
+   @include laptop-and-up {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    padding: 1em;
+   }
+
+   @include tablet-and-up {
+    h1 {
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+     align-self: flex-start;
+
+     div {
+      width: max-content;
+
+      span {
+       margin: 0 rem(8);
+       font-size: .5em;
+      }
+     }
+    }
+   }
+
+   .tabs {
+    margin-top: rem(8);
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(4);
+    border-bottom: 2px solid $accent;
+
+    li {
+     padding: .25em;
+     text-align: center;
+     flex-grow: 1;
+     border: 2px solid $accent;
+     border-bottom: none;
+     background: $accent;
+
+     @include laptop-and-up {
+      min-width: 100px;
+      flex-grow: 0;
+     }
+
+
+     &.active,
+     &:hover,
+     &:focus {
+      background: transparent;
+      color: $accent;
+     }
+    }
+   }
+
+   .labels {
+    width: 100%;
+    justify-content: center;
+    margin: rem(8) 0;
+
+    @include tablet-and-up {
+     display: flex;
+     gap: rem(8);
+     flex-wrap: wrap;
+    }
+
+    .label {
+     display: flex;
+     flex-direction: row;
+     margin: rem(8) 0;
+     flex-wrap: wrap;
+
+     @include tablet-and-up {
+      gap: 8px;
+      margin: 0;
+     }
+
+     .left,
+     .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: .1em .125em;
+      text-align: center;
+     }
+
+     span {
+      width: max-content;
+      margin: 0 4px;
+      vertical-align: middle;
+      height: max-content;
+     }
+
+     .left {
+      background: $accent;
+      color: $dark-txt;
+     }
+
+     .right {
+      border: 2px solid $accent;
+      border-radius: 0 0 2px 2px;
+     }
+
+     @include tablet-and-up {
+      flex-direction: column;
+      gap: 0;
+      min-width: rem(150);
+
+      .right {
+       border: 2px solid $accent;
+       border-radius: 0 0 2px;
+      }
+     }
+    }
+   }
+  }
+ }
+
+ // Card Details Tab
+ section {
+  margin: rem(8) 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding: rem(8) 0;
+
+  ul {
+   display: flex;
+   flex-direction: column;
+   gap: rem(8);
+   width: 100%;
+
+   li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+   }
+  }
+
+  &.rules {
+   li {
+    border-color: transparent;
+   }
+  }
+
+  &.attacks {
+   .attack {
+    display: flex;
+    flex-direction: column;
+
+    .dmg {
+     width: 100%;
+    }
+   }
+  }
+
+  &.abilities,
+  &.attacks {
+   :first-child {
+    .labels {
+     .label {
+      border: none;
+      flex-wrap: wrap;
+      padding: rem(4) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      width: 100%;
+
+      .left,
+      .right {
+       width: max-content;
+      }
+
+      .left {
+       color: inherit;
+       background: transparent;
+      }
+
+      .right {
+       border: none;
+       flex-grow: 1;
+       justify-content: flex-start;
+      }
+
+      @include tablet-and-up {
+       flex-direction: row;
+       border-bottom: 2px solid $accent;
+       padding: .25em 0;
+
+       .left,
+       .right {
+        width: max-content;
+        border: none;
+       }
+      }
+     }
+    }
+   }
+  }
+
+
+  &.sets {
+   display: flex;
+   width: 100%;
+   border-radius: 10px;
+   flex-direction: column;
+
+   .symbol {
+    height: max-content;
+    width: max-content;
+   }
+
+   .logo {
+    margin-top: rem(8);
+    align-self: center;
+    min-height: max-content;
+    height: rem(200);
+    object-fit: contain;
+   }
+  }
+
+
+ }
+
+ // Find more cards.
+ .more {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  h2 {
+   width: 100%;
+   margin: rem(8) 0;
+
+   a {
+    color: $accent;
+
+    &:hover,
+    &:focus {
+     color: inherit;
+    }
+   }
+  }
+
+  div {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: rem(8);
+
+   img {
+
+    &:hover,
+    &:focus {
+     transition: .3s ease-in-out all;
+     transform: scale(1.025);
+    }
+   }
+  }
+ }
+
+ .prices {
+  display: flex;
+  width: 100%;
+  margin: rem(8) 0;
+  flex-direction: column;
+  gap: 1rem;
+
+  div {
+   width: 100%;
+
+
+   h2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $accent;
+
+    a {
+     flex-grow: 1;
+     width: 100%;
+    }
+
+    span {
+     width: max-content;
+     width: 100%;
+     font-size: .8rem;
+     text-align: end;
+    }
+   }
+
+   .price {
+    margin: rem(8) 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 200px);
+
+    @include mobile {
+     align-items: center;
+     text-align: center;
+     justify-content: center;
+     grid-template-columns: repeat(auto, 75px);
+    }
+
+    li {
+     display: flex;
+     flex-direction: column;
+
+     .price-label {
+      text-transform: capitalize;
+     }
+    }
+   }
+  }
+ }
+}

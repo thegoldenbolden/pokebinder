@@ -1,0 +1,88 @@
+$dark-bg: rgb(39, 39, 44);
+$dark-txt: white;
+
+$light-bg: rgb(250, 250, 250);
+$light-txt: $dark-bg;
+
+$accent: rgb(51, 138, 105);
+$text-shadow: 0 0 100px currentColor;
+
+@function rem($px) {
+ @return #{$px / 16}rem;
+}
+
+@mixin theme($theme-bg, $theme-txt) {
+ background: $theme-bg;
+ color: $theme-txt;
+
+ input {
+  color: currentColor;
+
+  &::placeholder {
+   color: currentColor;
+  }
+ }
+
+ .bg {
+  background: $theme-bg;
+  color: $theme-txt;
+ }
+}
+
+
+.dark {
+ @include theme($dark-bg, $dark-txt);
+
+ .inverse {
+  background: $light-bg;
+  color: $light-txt;
+ }
+}
+
+.light {
+ @include theme($light-bg, $light-txt);
+
+ .inverse {
+  background: $dark-bg;
+  color: $dark-txt;
+ }
+}
+
+@mixin padding {
+ padding: .75rem 2rem;
+
+ @include large-screen {
+  padding: .75rem 5%;
+ }
+}
+
+
+@mixin mobile {
+ @media (max-width: 480px) {
+  @content;
+ }
+}
+
+@mixin tablet-and-up {
+ @media (min-width: 481px) {
+  @content;
+ }
+}
+
+@mixin laptop-and-up {
+ @media (min-width: 769px) {
+  @content;
+ }
+}
+
+@mixin desktop-and-up {
+ @media (min-width: 1025px) {
+  @content;
+ }
+}
+
+@mixin large-screen {
+ @media (min-width: 1201px) {
+  @content;
+ }
+}
