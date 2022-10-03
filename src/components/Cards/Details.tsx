@@ -133,16 +133,10 @@ const Details = ({ card }) => {
                />
               );
              })}
-             value={[attack.name]}
+             value={[attack.name, attack.damage ?? ""]}
             />
            )}
           </div>
-          {attack.damage?.length > 0 && (
-           <span className={styles["dmg"]}>
-            <span>Damage: </span>
-            {attack.damage}
-           </span>
-          )}
          </div>
          <p>{attack.text}</p>
         </li>
